@@ -26,6 +26,7 @@ const data = [
 ];
 
 let profiles = profileIterator(data);
+nextProfile();
 
 // Next event
 document.getElementById('next').addEventListener('click', nextProfile);
@@ -40,7 +41,6 @@ function nextProfile(){
     }    
 
     let currentProfile = current.value; 
-
 
     if(currentProfile){
         document.getElementById('profileDisplay').innerHTML = `
