@@ -25,14 +25,23 @@ const data = [
     }
 ];
 
-const profiles = profileIterator(data);
+let profiles = profileIterator(data);
 
 // Next event
 document.getElementById('next').addEventListener('click', nextProfile);
 
 // Next profile display
 function nextProfile(){
-    const currentProfile = profiles.next().value;
+    let current = profiles.next();
+    
+    if(current.done === true){
+        profiles = profileIterator(data);
+        current = profiles.next();
+    }    
+
+    let currentProfile = current.value; 
+
+
     if(currentProfile){
         document.getElementById('profileDisplay').innerHTML = `
             <ul class="list-group">
@@ -46,6 +55,7 @@ function nextProfile(){
             <img src="${currentProfile.image}">
         `;
     }
+
 }
 
 // Profile Iterator
