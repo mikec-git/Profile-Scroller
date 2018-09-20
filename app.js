@@ -14,7 +14,7 @@ const data = [
         lookingfor: 'Male',
         location: 'Miami Fl',
         image: 'https://randomuser.me/api/portraits/women/82.jpg'
-    }
+    },
     {
         name: 'William Johnson',
         age: 38,
@@ -24,3 +24,14 @@ const data = [
         image: 'https://randomuser.me/api/portraits/men/83.jpg'
     }
 ];
+
+// Profile Iterator
+function profileIterator(profiles){
+    let nextIndex = 0;
+
+    return {
+        next: function(){
+            return (nextIndex < profiles.length) ? {value: profiles[nextIndex++], done: false} : { done: true };
+        }
+    }
+}
